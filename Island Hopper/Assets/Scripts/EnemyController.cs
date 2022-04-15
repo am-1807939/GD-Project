@@ -11,6 +11,11 @@ public class EnemyController : MonoBehaviour
 	public float minDist = 1f;
 	public Transform target;
 
+    Animator animator;
+    int isWalkingHash;
+    int isAttackingHash;
+
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -22,6 +27,10 @@ public class EnemyController : MonoBehaviour
 				target = GameObject.FindWithTag ("Player").GetComponent<Transform>();
 			}
 		}
+
+        animator = GetComponent<Animator>();
+        isWalkingHash = Animator.StringToHash("isWalking");
+        isAttackingHash = Animator.StringToHash("isAttacking");
 	}
 	
 	// Update is called once per frame
@@ -36,12 +45,18 @@ public class EnemyController : MonoBehaviour
 
         if (distance <= lookRadius)
 		{
+
 		// face the target
 		transform.LookAt(target);
 
 		//so long as the chaser is farther away than the minimum distance, move towards it at rate speed.
-		if(distance > minDist)	
-			transform.position += transform.forward * speed * Time.deltaTime;	
+		if(distance > minDist)	{
+            animator.SetBool(isWalkingHash, true);
+            animator.SetBool(isAttackingHash, false);
+            transform.position += transform.forward * speed * Time.deltaTime;	
+        } else {
+            animator.SetBool(isAttackingHash, true);
+        }
 
         }
 	}
