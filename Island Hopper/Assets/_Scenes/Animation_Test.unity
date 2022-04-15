@@ -1492,6 +1492,7 @@ GameObject:
   - component: {fileID: 1767467897}
   - component: {fileID: 1767467899}
   - component: {fileID: 1767467898}
+  - component: {fileID: 1767467900}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -6320,6 +6321,25 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &1767467900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767467894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72efb9e0cf1734f0988c6069f6220681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPoints: 100
+  respawnHealthPoints: 100
+  numberOfLives: 1
+  isAlive: 1
+  explosionPrefab: {fileID: 0}
+  onLivesGone: 1
+  LevelToLoad: 
 --- !u!1 &1782464749
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Health : MonoBehaviour {
@@ -19,6 +20,9 @@ public class Health : MonoBehaviour {
 	
 	private Vector3 respawnPosition;
 	private Quaternion respawnRotation;
+
+
+	private Image hpBar;
 	
 
 	// Use this for initialization
@@ -32,6 +36,8 @@ public class Health : MonoBehaviour {
 		{
 			LevelToLoad = Application.loadedLevelName;
 		}
+
+		hpBar = GameObject.Find("HPbar").GetComponent<Image>();
 	}
 	
 	// Update is called once per frame
@@ -63,6 +69,9 @@ public class Health : MonoBehaviour {
 				Destroy(gameObject);
 			}
 		}
+
+		hpBar.fillAmount = healthPoints / respawnHealthPoints;
+
 	}
 	
 	public void ApplyDamage(float amount)
