@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
+
 
 public class Health : MonoBehaviour {
 	
 	public enum deathAction {loadLevelWhenDead,doNothingWhenDead};
 	
-	public float healthPoints = 1f;
-	public float respawnHealthPoints = 1f;		//base health points
+	public float healthPoints = 100f;
+	public float respawnHealthPoints = 100f;		//base health points
 	
 	public int numberOfLives = 1;					//lives and variables for respawning
 	public bool isAlive = true;	
@@ -19,6 +22,9 @@ public class Health : MonoBehaviour {
 	
 	private Vector3 respawnPosition;
 	private Quaternion respawnRotation;
+
+
+	private Image hpBar;
 	
 
 	// Use this for initialization
@@ -30,8 +36,13 @@ public class Health : MonoBehaviour {
 		
 		if (LevelToLoad=="") // default to current scene 
 		{
-			LevelToLoad = Application.loadedLevelName;
+			// LevelToLoad = Application.loadedLevelName;
+			Scene scene = SceneManager.GetActiveScene();
+			LevelToLoad = scene.name;
+
 		}
+
+		hpBar = GameObject.Find("HPbar").GetComponent<Image>();
 	}
 	
 	// Update is called once per frame
@@ -54,7 +65,8 @@ public class Health : MonoBehaviour {
 				switch(onLivesGone)
 				{
 				case deathAction.loadLevelWhenDead:
-					Application.LoadLevel (LevelToLoad);
+					// Application.LoadLevel (LevelToLoad);
+					SceneManager.LoadScene(LevelToLoad, LoadSceneMode.Single);
 					break;
 				case deathAction.doNothingWhenDead:
 					// do nothing, death must be handled in another way elsewhere
@@ -63,6 +75,9 @@ public class Health : MonoBehaviour {
 				Destroy(gameObject);
 			}
 		}
+
+		hpBar.fillAmount = healthPoints / respawnHealthPoints;
+
 	}
 	
 	public void ApplyDamage(float amount)
@@ -73,6 +88,10 @@ public class Health : MonoBehaviour {
 	public void ApplyHeal(float amount)
 	{
 		healthPoints = healthPoints + amount;
+		if (healthPoints > respawnHealthPoints)
+        {
+            healthPoints = respawnHealthPoints;
+        }
 	}
 
 	public void ApplyBonusLife(int amount)
