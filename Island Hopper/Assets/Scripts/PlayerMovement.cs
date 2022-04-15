@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
-        if(direction.magnitude >= 0.1)
+        if (direction.magnitude >= 0.1)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + mainCam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnVelocity, turnTime);
@@ -53,10 +53,10 @@ public class PlayerMovement : MonoBehaviour
 
         bool forwardPressed = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D);
         bool runPressed = Input.GetKey(KeyCode.LeftShift);
-        bool jumpPressed = Input.GetKey(KeyCode.Space);
-        bool attackPressed = Input.GetKey(KeyCode.Mouse0);
+        bool jumpPressed = Input.GetKeyDown(KeyCode.Space);
+        bool attackPressed = Input.GetKeyDown(KeyCode.Mouse0);
 
-        
+
 
         if (!isWalking && forwardPressed)
             animator.SetBool(isWalkingHash, true);
@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool(isRunningHash, true);
             movementSpeed = 5.0f;
         }
-       
+
 
         if (isRunning && (!forwardPressed || !runPressed))
         {
@@ -80,6 +80,12 @@ public class PlayerMovement : MonoBehaviour
             animator.SetTrigger(isJumpingHash);
 
         if (attackPressed)
+        {
             animator.SetTrigger(isAttackingHash);
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + mainCam.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnVelocity, turnTime);
+
+            transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
+        }
     }
 }
