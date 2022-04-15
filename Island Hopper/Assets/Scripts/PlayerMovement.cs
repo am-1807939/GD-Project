@@ -36,15 +36,18 @@ public class PlayerMovement : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
-        if (direction.magnitude >= 0.1)
+        if (isPlaying(animator,"Attack04") == false)
         {
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + mainCam.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnVelocity, turnTime);
+            if (direction.magnitude >= 0.1)
+            {
+                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + mainCam.eulerAngles.y;
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnVelocity, turnTime);
 
-            transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
+                transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
 
-            Vector3 moveDir = Quaternion.Euler(0f, angle, 0f) * Vector3.forward;
-            controller.Move(movementSpeed * Time.deltaTime * moveDir.normalized);
+                Vector3 moveDir = Quaternion.Euler(0f, angle, 0f) * Vector3.forward;
+                controller.Move(movementSpeed * Time.deltaTime * moveDir.normalized);
+            }
         }
 
 
@@ -66,14 +69,14 @@ public class PlayerMovement : MonoBehaviour
         if (!isRunning && (forwardPressed && runPressed))
         {
             animator.SetBool(isRunningHash, true);
-            movementSpeed = 5.0f;
+            movementSpeed = 8.0f;
         }
 
 
         if (isRunning && (!forwardPressed || !runPressed))
         {
             animator.SetBool(isRunningHash, false);
-            movementSpeed = 1.0f;
+            movementSpeed = 2.0f;
         }
 
         if (jumpPressed)
@@ -87,5 +90,14 @@ public class PlayerMovement : MonoBehaviour
 
             transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
         }
+    }
+
+    bool isPlaying(Animator anim, string stateName)
+    {
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName(stateName) &&
+                anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+            return true;
+        else
+            return false;
     }
 }
