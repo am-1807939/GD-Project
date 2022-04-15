@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     int isWalkingHash;
     int isRunningHash;
     int isJumpingHash;
+    int isAttackingHash;
 
     public float movementSpeed = 2.0f;
     public CharacterController controller;
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
         isWalkingHash = Animator.StringToHash("isWalking");
         isRunningHash = Animator.StringToHash("isRunning");
         isJumpingHash = Animator.StringToHash("isJumping");
+        isAttackingHash = Animator.StringToHash("isAttacking");
     }
 
     // Update is called once per frame
@@ -52,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
         bool forwardPressed = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D);
         bool runPressed = Input.GetKey(KeyCode.LeftShift);
         bool jumpPressed = Input.GetKey(KeyCode.Space);
+        bool attackPressed = Input.GetKey(KeyCode.Mouse0);
 
         
 
@@ -75,5 +78,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (jumpPressed)
             animator.SetTrigger(isJumpingHash);
+
+        if (attackPressed)
+            animator.SetTrigger(isAttackingHash);
     }
 }
