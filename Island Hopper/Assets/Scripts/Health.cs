@@ -5,8 +5,8 @@ public class Health : MonoBehaviour {
 	
 	public enum deathAction {loadLevelWhenDead,doNothingWhenDead};
 	
-	public float healthPoints = 1f;
-	public float respawnHealthPoints = 1f;		//base health points
+	public float healthPoints = 100f;
+	public float respawnHealthPoints = 100f;		//base health points
 	
 	public int numberOfLives = 1;					//lives and variables for respawning
 	public bool isAlive = true;	
