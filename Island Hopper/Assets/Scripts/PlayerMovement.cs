@@ -36,6 +36,15 @@ public class PlayerMovement : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
+
+        bool isWalking = animator.GetBool(isWalkingHash);
+        bool isRunning = animator.GetBool(isRunningHash);
+
+        bool forwardPressed = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D);
+        bool runPressed = Input.GetKey(KeyCode.LeftShift);
+        bool jumpPressed = Input.GetKeyDown(KeyCode.Space);
+        bool attackPressed = Input.GetKeyDown(KeyCode.Mouse0);
+
         if (isPlaying(animator,"Attack04") == false)
         {
             if (direction.magnitude >= 0.1)
@@ -48,16 +57,14 @@ public class PlayerMovement : MonoBehaviour
                 Vector3 moveDir = Quaternion.Euler(0f, angle, 0f) * Vector3.forward;
                 controller.Move(movementSpeed * Time.deltaTime * moveDir.normalized);
             }
+
+            if (jumpPressed)
+                controller.Move(new Vector3(0, 1, 0));
+
         }
 
 
-        bool isWalking = animator.GetBool(isWalkingHash);
-        bool isRunning = animator.GetBool(isRunningHash);
-
-        bool forwardPressed = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D);
-        bool runPressed = Input.GetKey(KeyCode.LeftShift);
-        bool jumpPressed = Input.GetKeyDown(KeyCode.Space);
-        bool attackPressed = Input.GetKeyDown(KeyCode.Mouse0);
+   
 
 
 
@@ -81,6 +88,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (jumpPressed)
             animator.SetTrigger(isJumpingHash);
+
+        if (Input.GetKeyDown(KeyCode.K))
+            animator.SetTrigger("isHit");
 
         if (attackPressed)
         {
