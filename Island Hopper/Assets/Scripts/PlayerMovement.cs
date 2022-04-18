@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     float turnVelocity;
     public Transform mainCam;
 
-    public float gravity = -6f;
+    private float gravity = -9.81f;
     private Vector3 velocity;
     // Start is called before the first frame update
     void Start()
@@ -60,26 +60,26 @@ public class PlayerMovement : MonoBehaviour
                 controller.Move(movementSpeed * Time.deltaTime * moveDir.normalized);
 
             }
-
-            if (controller.isGrounded && velocity.y < 0)
-            {
-                velocity.y = -2;
-            }
-
-            if (jumpPressed && controller.isGrounded)
-            {
-                velocity.y = Mathf.Sqrt(1 * -2.0f * gravity);
-            }
-
-            velocity.y += gravity * Time.deltaTime;
-            controller.Move(velocity * Time.deltaTime);
-
         }
 
 
-
-        if (controller.isGrounded)
+        if (controller.isGrounded && velocity.y < 0 && (isPlaying(animator, "JumpStart") == false || isPlaying(animator, "JumpEnd") == false))
         {
+            velocity.y = -2;
+        }
+
+        if (jumpPressed && controller.isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(1 * -2.0f * gravity);
+        }
+
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
+
+
+
+
+
 
             if (!isWalking && forwardPressed)
                 animator.SetBool(isWalkingHash, true);
@@ -96,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
             if (isRunning && (!forwardPressed || !runPressed))
             {
                 animator.SetBool(isRunningHash, false);
-                movementSpeed = 2.0f;
+                movementSpeed = 4.0f;
             }
 
             if (jumpPressed)
@@ -113,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
 
                 transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
             }
-        }
+       
 
         bool isPlaying(Animator anim, string stateName)
         {
