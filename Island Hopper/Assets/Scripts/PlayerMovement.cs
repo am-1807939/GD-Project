@@ -11,12 +11,14 @@ public class PlayerMovement : MonoBehaviour
     int isJumpingHash;
     int isAttackingHash;
 
-    public float movementSpeed = 2.0f;
+    public float movementSpeed = 4.0f;
     public CharacterController controller;
     public float turnTime = 0.1f;
     float turnVelocity;
     public Transform mainCam;
 
+    public float gravity = -6f;
+    private Vector3 velocity;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
         bool jumpPressed = Input.GetKeyDown(KeyCode.Space);
         bool attackPressed = Input.GetKeyDown(KeyCode.Mouse0);
 
-        if (isPlaying(animator,"Attack04") == false)
+        if (isPlaying(animator, "Attack04") == false)
         {
             if (direction.magnitude >= 0.1)
             {
@@ -56,58 +58,70 @@ public class PlayerMovement : MonoBehaviour
 
                 Vector3 moveDir = Quaternion.Euler(0f, angle, 0f) * Vector3.forward;
                 controller.Move(movementSpeed * Time.deltaTime * moveDir.normalized);
+
+            }
+
+            if (controller.isGrounded && velocity.y < 0)
+            {
+                velocity.y = -2;
+            }
+
+            if (jumpPressed && controller.isGrounded)
+            {
+                velocity.y = Mathf.Sqrt(1 * -2.0f * gravity);
+            }
+
+            velocity.y += gravity * Time.deltaTime;
+            controller.Move(velocity * Time.deltaTime);
+
+        }
+
+
+
+        if (controller.isGrounded)
+        {
+
+            if (!isWalking && forwardPressed)
+                animator.SetBool(isWalkingHash, true);
+            if (isWalking && !forwardPressed)
+                animator.SetBool(isWalkingHash, false);
+
+            if (!isRunning && (forwardPressed && runPressed))
+            {
+                animator.SetBool(isRunningHash, true);
+                movementSpeed = 8.0f;
+            }
+
+
+            if (isRunning && (!forwardPressed || !runPressed))
+            {
+                animator.SetBool(isRunningHash, false);
+                movementSpeed = 2.0f;
             }
 
             if (jumpPressed)
-                controller.Move(new Vector3(0, 1, 0));
+                animator.SetTrigger(isJumpingHash);
 
+            if (Input.GetKeyDown(KeyCode.K))
+                animator.SetTrigger("isHit");
+
+            if (attackPressed)
+            {
+                animator.SetTrigger(isAttackingHash);
+                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + mainCam.eulerAngles.y;
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnVelocity, turnTime);
+
+                transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
+            }
         }
 
-
-   
-
-
-
-        if (!isWalking && forwardPressed)
-            animator.SetBool(isWalkingHash, true);
-        if (isWalking && !forwardPressed)
-            animator.SetBool(isWalkingHash, false);
-
-        if (!isRunning && (forwardPressed && runPressed))
+        bool isPlaying(Animator anim, string stateName)
         {
-            animator.SetBool(isRunningHash, true);
-            movementSpeed = 8.0f;
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName(stateName) &&
+                    anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+                return true;
+            else
+                return false;
         }
-
-
-        if (isRunning && (!forwardPressed || !runPressed))
-        {
-            animator.SetBool(isRunningHash, false);
-            movementSpeed = 2.0f;
-        }
-
-        if (jumpPressed)
-            animator.SetTrigger(isJumpingHash);
-
-        if (Input.GetKeyDown(KeyCode.K))
-            animator.SetTrigger("isHit");
-
-        if (attackPressed)
-        {
-            animator.SetTrigger(isAttackingHash);
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + mainCam.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnVelocity, turnTime);
-
-            transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
-        }
-    }
-
-    bool isPlaying(Animator anim, string stateName)
-    {
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName(stateName) &&
-                anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
-            return true;
-        else
-            return false;
     }
 }
