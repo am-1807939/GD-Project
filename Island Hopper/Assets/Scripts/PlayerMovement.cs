@@ -9,7 +9,6 @@ public class PlayerMovement : MonoBehaviour
     int isWalkingHash;
     int isRunningHash;
     int isJumpingHash;
-    int isAttackingHash;
 
     public float movementSpeed = 4.0f;
     public CharacterController controller;
@@ -26,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
         isWalkingHash = Animator.StringToHash("isWalking");
         isRunningHash = Animator.StringToHash("isRunning");
         isJumpingHash = Animator.StringToHash("isJumping");
-        isAttackingHash = Animator.StringToHash("isAttacking");
     }
 
     // Update is called once per frame
@@ -45,7 +43,6 @@ public class PlayerMovement : MonoBehaviour
         bool forwardPressed = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D);
         bool runPressed = Input.GetKey(KeyCode.LeftShift);
         bool jumpPressed = Input.GetKeyDown(KeyCode.Space);
-        bool attackPressed = Input.GetKeyDown(KeyCode.Mouse0);
 
         if (isPlaying(animator, "Attack04") == false)
         {
@@ -76,11 +73,6 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
-
-
-
-
-
             if (!isWalking && forwardPressed)
                 animator.SetBool(isWalkingHash, true);
             if (isWalking && !forwardPressed)
@@ -101,19 +93,6 @@ public class PlayerMovement : MonoBehaviour
 
             if (jumpPressed)
                 animator.SetTrigger(isJumpingHash);
-
-            if (Input.GetKeyDown(KeyCode.K))
-                animator.SetTrigger("isHit");
-
-            if (attackPressed)
-            {
-                animator.SetTrigger(isAttackingHash);
-                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + mainCam.eulerAngles.y;
-                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnVelocity, turnTime);
-
-                transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
-            }
-       
 
         bool isPlaying(Animator anim, string stateName)
         {
