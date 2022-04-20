@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
 
     private float gravity = -9.81f;
     private Vector3 velocity;
+    public AudioSource walkAudioSrc;
+    public AudioSource runAudioSrc;
     // Start is called before the first frame update
     void Start()
     {
@@ -73,21 +75,32 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
-            if (!isWalking && forwardPressed)
-                animator.SetBool(isWalkingHash, true);
-            if (isWalking && !forwardPressed)
-                animator.SetBool(isWalkingHash, false);
+        if (!isWalking && forwardPressed)
+        {
+            animator.SetBool(isWalkingHash, true);
+            walkAudioSrc.Play();
+        }
+        if (isWalking && !forwardPressed)
+        {
+            animator.SetBool(isWalkingHash, false);
+            walkAudioSrc.Stop();
+        }
+
 
             if (!isRunning && (forwardPressed && runPressed))
             {
                 animator.SetBool(isRunningHash, true);
+                walkAudioSrc.Stop();
+                runAudioSrc.Play();
                 movementSpeed = 8.0f;
             }
 
 
             if (isRunning && (!forwardPressed || !runPressed))
             {
-                animator.SetBool(isRunningHash, false);
+                walkAudioSrc.Play();
+                runAudioSrc.Stop();
+            animator.SetBool(isRunningHash, false);
                 movementSpeed = 4.0f;
             }
 
