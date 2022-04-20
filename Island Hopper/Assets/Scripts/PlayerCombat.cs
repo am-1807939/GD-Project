@@ -17,6 +17,9 @@ public class PlayerCombat : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = 1f;
     public float attackDamage = 30f;
+    public float attackCooldown = 1f;
+    private float nextAttack = 0f;
+
 
     public LayerMask enemyLayers;
 
@@ -32,11 +35,15 @@ public class PlayerCombat : MonoBehaviour
     void Update()
     {
 
-        bool attackPressed = Input.GetKeyDown(KeyCode.Mouse0);
+        if(Time.time>=nextAttack){
 
-        if (attackPressed)
-        {
-            Attack();
+            bool attackPressed = Input.GetKeyDown(KeyCode.Mouse0);
+
+            if (attackPressed)
+            {
+                Attack();
+                nextAttack=Time.time + attackCooldown;
+            }
         }
 
 
@@ -63,6 +70,7 @@ public class PlayerCombat : MonoBehaviour
         // Collider[] hitEnemies = Physics.OverlapCapsule(attackPoint.position, attackPoint.position + new Vector3(0, 1f, 0) , attackRange, enemyLayers);
 
         foreach (Collider enemy in hitEnemies) {
+            Debug.Log("Attack");
             enemy.GetComponent<EnemyHealth>().ApplyDamage(attackDamage);
         }
 

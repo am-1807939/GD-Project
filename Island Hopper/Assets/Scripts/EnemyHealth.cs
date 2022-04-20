@@ -45,6 +45,12 @@ public class EnemyHealth : MonoBehaviour
 
         animator.SetTrigger(isDeadHash);
 
+        // Disable all collider so attacking during death animation is not possible
+        foreach(Collider c in GetComponents<Collider> ()) {
+         c.enabled = false; 
+        }
+
+        // destroy after delay and when animation is over
         Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length + deathDelay);
     }
 	
