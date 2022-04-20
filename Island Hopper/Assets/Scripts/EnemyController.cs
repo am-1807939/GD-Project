@@ -43,22 +43,29 @@ public class EnemyController : MonoBehaviour
 		float distance = Vector3.Distance(transform.position,target.position);
 
 
-        if (distance <= lookRadius)
+		if (distance <= lookRadius)
 		{
 
-		// face the target
-		transform.LookAt(target);
+			// face the target
+			transform.LookAt(target);
 
-		//so long as the chaser is farther away than the minimum distance, move towards it at rate speed.
-		if(distance > minDist)	{
-            animator.SetBool(isWalkingHash, true);
-            animator.SetBool(isAttackingHash, false);
-            transform.position += transform.forward * speed * Time.deltaTime;	
-        } else {
-            animator.SetBool(isAttackingHash, true);
-        }
+			//so long as the chaser is farther away than the minimum distance, move towards it at rate speed.
+			if (distance > minDist)
+			{
+				animator.SetBool(isWalkingHash, true);
+				animator.SetBool(isAttackingHash, false);
+				transform.position += transform.forward * speed * Time.deltaTime;
+			}
+			else
+			{
+				animator.SetBool(isAttackingHash, true);
+			}
 
-        }
+		} 
+		else
+        {
+			animator.SetBool(isWalkingHash, false);
+		}
 	}
 
 	// Set the target of the chaser
