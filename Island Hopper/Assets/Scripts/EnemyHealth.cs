@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -14,7 +15,8 @@ public class EnemyHealth : MonoBehaviour
 	public float maxHP = 100f;		
 
     public float deathDelay = 1f;
-	public GameObject explosionPrefab;	
+	public GameObject explosionPrefab;
+    public Slider healthBar;
 
 	void Start () 
 	{
@@ -23,9 +25,14 @@ public class EnemyHealth : MonoBehaviour
         isHitHash = Animator.StringToHash("isHit");
         isDeadHash = Animator.StringToHash("isDead");
 	}
-	
-	
-	public void ApplyDamage(float amount)
+
+    private void Update()
+    {
+        healthBar.value = healthPoints / maxHP;
+    }
+
+
+    public void ApplyDamage(float amount)
 	{	
 
 		healthPoints = healthPoints - amount;
