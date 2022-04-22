@@ -72,16 +72,8 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = Mathf.Sqrt(1 * -2.0f * gravity);
             jumpAuidoSrc.Play();
-            if (walkAudioSrc.isPlaying)
-            {
-                walkAudioSrc.Pause();
-                walkAudioSrc.PlayDelayed(1f);
-            }
-            if (runAudioSrc.isPlaying)
-            {
-                runAudioSrc.Pause();
-                runAudioSrc.PlayDelayed(1f);
-            }
+            CheckWalkAndRunSound();
+           
         }
 
         velocity.y += gravity * Time.deltaTime;
@@ -126,6 +118,20 @@ public class PlayerMovement : MonoBehaviour
                 return true;
             else
                 return false;
+        }
+
+    }
+    public void CheckWalkAndRunSound()
+    {
+        if (walkAudioSrc.isPlaying)
+        {
+            walkAudioSrc.Stop();
+            walkAudioSrc.PlayDelayed(1f);
+        }
+        if (runAudioSrc.isPlaying)
+        {
+            runAudioSrc.Stop();
+            runAudioSrc.PlayDelayed(1f);
         }
     }
 }

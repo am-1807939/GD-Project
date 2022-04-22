@@ -61,6 +61,7 @@ public class PlayerCombat : MonoBehaviour
 
         animator.SetTrigger(isAttackingHash);
         attackAudioSrc.Play();
+        this.GetComponent<PlayerMovement>().CheckWalkAndRunSound();
         float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + mainCam.eulerAngles.y;
         float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnVelocity, turnTime);
 
