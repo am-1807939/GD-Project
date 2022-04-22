@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
     public float attackRange = 1f;
     public float attackDamage = 30f;
     public float attackCooldown = 1f;
+	public float attackDelay = 1f;
     private float nextAttack = 0f;
 
     public LayerMask playerLayer;
@@ -71,7 +72,8 @@ public class EnemyController : MonoBehaviour
 
 					bool attackPressed = Input.GetKeyDown(KeyCode.Mouse0);
 
-					Attack();
+					Invoke("Attack", attackDelay);
+					// Attack();
 					nextAttack=Time.time + attackCooldown;
         		}
 				animator.SetBool(isAttackingHash, true);
