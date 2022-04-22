@@ -40,13 +40,13 @@ public class Mana : MonoBehaviour
     }
 
 
-    public void ConsumeMana(float amount)
+    public bool ConsumeMana(float amount)
 	{	
         if (manaPoints > amount) {
             manaPoints = manaPoints - amount;	
-
+            return true;
         } else {
-            // not enough mana, show message
+            return false;
         }
 	}
 	
