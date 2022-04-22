@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 velocity;
     public AudioSource walkAudioSrc;
     public AudioSource runAudioSrc;
+    public AudioSource jumpAuidoSrc;
     // Start is called before the first frame update
     void Start()
     {
@@ -70,6 +71,17 @@ public class PlayerMovement : MonoBehaviour
         if (jumpPressed && controller.isGrounded)
         {
             velocity.y = Mathf.Sqrt(1 * -2.0f * gravity);
+            jumpAuidoSrc.Play();
+            if (walkAudioSrc.isPlaying)
+            {
+                walkAudioSrc.Pause();
+                walkAudioSrc.PlayDelayed(1f);
+            }
+            if (runAudioSrc.isPlaying)
+            {
+                runAudioSrc.Pause();
+                runAudioSrc.PlayDelayed(1f);
+            }
         }
 
         velocity.y += gravity * Time.deltaTime;
