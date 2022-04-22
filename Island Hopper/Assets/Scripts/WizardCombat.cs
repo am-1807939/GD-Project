@@ -8,7 +8,10 @@ public class WizardCombat : MonoBehaviour
 
     public GameObject fireball;
     public Transform shotPoint;
+    public float manaRequired = 10f;
     private float attackSpeed = 20.0f;
+
+    private Mana playerMana;
 
     int isAttackingHash;
 
@@ -21,13 +24,14 @@ public class WizardCombat : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        playerMana = GameObject.Find("Player").GetComponent<Mana>();
         isAttackingHash = Animator.StringToHash("isAttacking");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && playerMana.ConsumeMana(manaRequired))
         {
             float horizontal = Input.GetAxis("Horizontal");
             float vertical = Input.GetAxis("Vertical");
