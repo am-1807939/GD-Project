@@ -19,6 +19,7 @@ public class PlayerCombat : MonoBehaviour
     public float attackDamage = 30f;
     public float attackCooldown = 1f;
     private float nextAttack = 0f;
+    public AudioSource attackAudioSrc;
 
 
     public LayerMask enemyLayers;
@@ -59,6 +60,8 @@ public class PlayerCombat : MonoBehaviour
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
         animator.SetTrigger(isAttackingHash);
+        attackAudioSrc.Play();
+        this.GetComponent<PlayerMovement>().CheckWalkAndRunSound();
         float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + mainCam.eulerAngles.y;
         float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnVelocity, turnTime);
 
