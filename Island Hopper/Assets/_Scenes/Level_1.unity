@@ -3538,6 +3538,7 @@ MonoBehaviour:
   attackRange: 1
   attackDamage: 30
   attackCooldown: 1
+  knockbackStrength: 600
   enemyLayers:
     serializedVersion: 2
     m_Bits: 8
@@ -3894,6 +3895,7 @@ MonoBehaviour:
   attackRange: 1
   attackDamage: 30
   attackCooldown: 1
+  attackDelay: 1
   playerLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -12672,7 +12674,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1837165929}
-  m_LocalRotation: {x: 0.12218325, y: -0.000000017077465, z: 0.0000000021023316, w: 0.9925076}
+  m_LocalRotation: {x: 0.12218327, y: 0.000000017077465, z: -0.0000000021023319, w: 0.9925076}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -13403,6 +13405,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7630147386782743523, guid: 51ed0c15c38aa483c93f27d152932312, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6719385144254263525, guid: 51ed0c15c38aa483c93f27d152932312, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1267512383531769313, guid: 51ed0c15c38aa483c93f27d152932312, type: 3}
+      propertyPath: maxHP
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 1090219386143568, guid: 51ed0c15c38aa483c93f27d152932312, type: 3}
       propertyPath: m_Name
       value: Slime
@@ -13421,7 +13435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4885079432260988, guid: 51ed0c15c38aa483c93f27d152932312, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -180.95811
+      value: -177.83
       objectReference: {fileID: 0}
     - target: {fileID: 4885079432260988, guid: 51ed0c15c38aa483c93f27d152932312, type: 3}
       propertyPath: m_LocalRotation.w

@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
 	public Transform target;
 
     Animator animator;
+	Rigidbody rb;
     int isWalkingHash;
     int isAttackingHash;
 
@@ -39,6 +40,7 @@ public class EnemyController : MonoBehaviour
 		}
 
         animator = GetComponent<Animator>();
+		rb = GetComponent<Rigidbody>();
         isWalkingHash = Animator.StringToHash("isWalking");
         isAttackingHash = Animator.StringToHash("isAttacking");
 	}
@@ -100,6 +102,10 @@ public class EnemyController : MonoBehaviour
 	public void SetTarget(Transform newTarget)
 	{
 		target = newTarget;
+	}
+
+	public void receiveKnockback(float strength, Vector3 direction) {
+		rb.AddForce(direction * strength);
 	}
 
     void OnDrawGizmosSelected ()

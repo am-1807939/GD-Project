@@ -6,6 +6,7 @@ public class PlayerCombat : MonoBehaviour
 {
 
     Animator animator;
+    Rigidbody rb;
 
     public float turnTime = 0.1f;
     float turnVelocity;
@@ -18,6 +19,7 @@ public class PlayerCombat : MonoBehaviour
     public float attackRange = 1f;
     public float attackDamage = 30f;
     public float attackCooldown = 1f;
+    public float knockbackStrength = 1f;
     private float nextAttack = 0f;
 
 
@@ -28,6 +30,7 @@ public class PlayerCombat : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
         isAttackingHash = Animator.StringToHash("isAttacking");
     }
 
@@ -71,6 +74,7 @@ public class PlayerCombat : MonoBehaviour
 
         foreach (Collider enemy in hitEnemies) {
             enemy.GetComponent<EnemyHealth>().ApplyDamage(attackDamage);
+            enemy.GetComponent<EnemyController>().receiveKnockback(knockbackStrength, enemy.transform.position - transform.position);
         }
 
     }
