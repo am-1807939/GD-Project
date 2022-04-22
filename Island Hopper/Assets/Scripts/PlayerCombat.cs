@@ -70,7 +70,6 @@ public class PlayerCombat : MonoBehaviour
         // Collider[] hitEnemies = Physics.OverlapCapsule(attackPoint.position, attackPoint.position + new Vector3(0, 1f, 0) , attackRange, enemyLayers);
 
         foreach (Collider enemy in hitEnemies) {
-            Debug.Log("Attack");
             enemy.GetComponent<EnemyHealth>().ApplyDamage(attackDamage);
         }
 
