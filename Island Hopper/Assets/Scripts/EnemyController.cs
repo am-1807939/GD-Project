@@ -12,8 +12,19 @@ public class EnemyController : MonoBehaviour
 	public Transform target;
 
     Animator animator;
+	Rigidbody rb;
     int isWalkingHash;
     int isAttackingHash;
+
+	public Transform attackPoint;
+    public float attackRange = 1f;
+    public float attackDamage = 30f;
+    public float attackCooldown = 1f;
+	public float attackDelay = 1f;
+    private float nextAttack = 0f;
+
+    public LayerMask playerLayer;
+
 
 
 	// Use this for initialization
@@ -29,6 +40,7 @@ public class EnemyController : MonoBehaviour
 		}
 
         animator = GetComponent<Animator>();
+		rb = GetComponent<Rigidbody>();
         isWalkingHash = Animator.StringToHash("isWalking");
         isAttackingHash = Animator.StringToHash("isAttacking");
 	}
@@ -58,6 +70,14 @@ public class EnemyController : MonoBehaviour
 			}
 			else
 			{
+				if(Time.time>=nextAttack){
+
+					bool attackPressed = Input.GetKeyDown(KeyCode.Mouse0);
+
+					Invoke("Attack", attackDelay);
+					// Attack();
+					nextAttack=Time.time + attackCooldown;
+        		}
 				animator.SetBool(isAttackingHash, true);
 			}
 
@@ -68,16 +88,35 @@ public class EnemyController : MonoBehaviour
 		}
 	}
 
-	// Set the target of the chaser
+
+	    void Attack()
+    {
+
+        Collider[] players = Physics.OverlapSphere(attackPoint.position, attackRange, playerLayer);
+
+        foreach (Collider player in players) {
+            player.GetComponent<Health>().ApplyDamage(attackDamage);
+        }
+
+    }
 	public void SetTarget(Transform newTarget)
 	{
 		target = newTarget;
+	}
+
+	public void receiveKnockback(float strength, Vector3 direction) {
+		rb.AddForce(direction * strength);
 	}
 
     void OnDrawGizmosSelected ()
 	{
 		Gizmos.color = Color.red;
 		Gizmos.DrawWireSphere(transform.position, lookRadius);
+
+		if (attackPoint == null)
+            return;
+
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
 	}
 
 }
