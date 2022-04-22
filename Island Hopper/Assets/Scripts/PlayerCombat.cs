@@ -6,8 +6,6 @@ public class PlayerCombat : MonoBehaviour
 {
 
     Animator animator;
-    Rigidbody rb;
-
     public float turnTime = 0.1f;
     float turnVelocity;
 
@@ -30,7 +28,6 @@ public class PlayerCombat : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody>();
         isAttackingHash = Animator.StringToHash("isAttacking");
     }
 
