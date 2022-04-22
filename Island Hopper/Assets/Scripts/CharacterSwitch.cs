@@ -8,6 +8,7 @@ public class CharacterSwitch : MonoBehaviour
     public GameObject knight;
     private ParticleSystem smoke;
     public Transform mainCam;
+    public AudioSource switchAudioSrc;
     void Start()
     {
         smoke = GetComponent<ParticleSystem>();
@@ -48,6 +49,7 @@ public class CharacterSwitch : MonoBehaviour
     private IEnumerator SmokeScreen()
     {
         ParticleSystem.EmissionModule smokeEmission = smoke.emission;
+        switchAudioSrc.Play();
         smokeEmission.enabled = true;
         yield return new WaitForSeconds(0.4f);
         smokeEmission.enabled = false;
