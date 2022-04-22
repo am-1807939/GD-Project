@@ -1573,7 +1573,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 400806666}
-  m_LocalRotation: {x: 0.10410984, y: 0.000000017646427, z: -0.0000000018457361, w: 0.99456584}
+  m_LocalRotation: {x: 0.10410984, y: -0.000000017646416, z: 0.0000000018457461, w: 0.99456584}
   m_LocalPosition: {x: 11.9, y: -754.91, z: -207.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4585,7 +4585,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1030901988}
-  m_LocalRotation: {x: 0.104109846, y: 0.000000017639556, z: -0.0000000018464856, w: 0.99456584}
+  m_LocalRotation: {x: 0.104109846, y: -0.000000017639545, z: 0.0000000018464845, w: 0.99456584}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -11458,7 +11458,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireball: {fileID: 5687962585278556410, guid: 3ac3dbd840ae82d43b2819a18d910002, type: 3}
-  shotPoint: {fileID: 0}
+  shotPoint: {fileID: 178812041}
+  turnTime: 0.1
+  mainCam: {fileID: 400806669}
 --- !u!82 &1505455862
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11749,7 +11751,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
