@@ -6,7 +6,6 @@ public class PlayerCombat : MonoBehaviour
 {
 
     Animator animator;
-
     public float turnTime = 0.1f;
     float turnVelocity;
 
@@ -18,6 +17,7 @@ public class PlayerCombat : MonoBehaviour
     public float attackRange = 1f;
     public float attackDamage = 30f;
     public float attackCooldown = 1f;
+    public float knockbackStrength = 1f;
     private float nextAttack = 0f;
     public AudioSource attackAudioSrc;
 
@@ -73,8 +73,8 @@ public class PlayerCombat : MonoBehaviour
         // Collider[] hitEnemies = Physics.OverlapCapsule(attackPoint.position, attackPoint.position + new Vector3(0, 1f, 0) , attackRange, enemyLayers);
 
         foreach (Collider enemy in hitEnemies) {
-            Debug.Log("Attack");
             enemy.GetComponent<EnemyHealth>().ApplyDamage(attackDamage);
+            enemy.GetComponent<EnemyController>().receiveKnockback(knockbackStrength, enemy.transform.position - transform.position);
         }
 
     }
