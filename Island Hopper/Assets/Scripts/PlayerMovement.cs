@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
         bool runPressed = Input.GetKey(KeyCode.LeftShift);
         bool jumpPressed = Input.GetKeyDown(KeyCode.Space);
 
-        if (isPlaying(animator, "Attack04") == false)
+        if (isPlaying(animator, "Attack1") == false && isPlaying(animator, "Attack2") == false)
         {
             if (direction.magnitude >= 0.1)
             {

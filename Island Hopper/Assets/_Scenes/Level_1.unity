@@ -1574,7 +1574,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 400806666}
-  m_LocalRotation: {x: 0.10410984, y: -0.000000017646416, z: 0.0000000018457337, w: 0.99456584}
+  m_LocalRotation: {x: 0.10410984, y: -0.000000017646416, z: 0.0000000018457461, w: 0.99456584}
   m_LocalPosition: {x: 39.1, y: -753.96, z: -197.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2501,7 +2501,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1248815240492774, guid: ccd8c3b89aa02e943a08ab9238a8a70c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4463868907105534, guid: ccd8c3b89aa02e943a08ab9238a8a70c, type: 3}
       propertyPath: m_RootOrder
@@ -6621,6 +6621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireball: {fileID: 1473099095112012803, guid: c02f3664db5de4a48994e802ab921e80, type: 3}
   shotPoint: {fileID: 29507332}
+  manaRequired: 10
   turnTime: 0.1
   mainCam: {fileID: 400806669}
   attackAudioSrc: {fileID: 1505455869}
@@ -7311,7 +7312,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554122304}
-  m_LocalRotation: {x: 0.08604984, y: 0.0000000042856403, z: -3.7015158e-10, w: 0.99629086}
+  m_LocalRotation: {x: 0.08604984, y: -0.0000000042856407, z: 3.701516e-10, w: 0.99629086}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7451,7 +7452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1835885862194036, guid: c647a6e9ba715004ebbf4dc6d7bd1e7a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4158096630655302, guid: c647a6e9ba715004ebbf4dc6d7bd1e7a, type: 3}
       propertyPath: m_RootOrder
@@ -7500,7 +7501,7 @@ PrefabInstance:
     - target: {fileID: 95905397883882224, guid: c647a6e9ba715004ebbf4dc6d7bd1e7a, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 923d3b99847f6474087dd6f2177566a0, type: 2}
+      objectReference: {fileID: 9100000, guid: 160f39eba228a4b51a919e4e435f9725, type: 2}
     - target: {fileID: 95905397883882224, guid: c647a6e9ba715004ebbf4dc6d7bd1e7a, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 1
@@ -14768,7 +14769,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: -23.14, y: 0, z: 0}
 --- !u!4 &2104112282 stripped
 Transform:
@@ -15067,7 +15068,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5938030324139740435, guid: d986b848a35cf4ffcbe07b308f492384, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5938030324139740435, guid: d986b848a35cf4ffcbe07b308f492384, type: 3}
       propertyPath: m_LocalPosition.x
