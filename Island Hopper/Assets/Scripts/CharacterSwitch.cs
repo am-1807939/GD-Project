@@ -55,4 +55,14 @@ public class CharacterSwitch : MonoBehaviour
         smokeEmission.enabled = false;
     }
 
+    public GameObject getActiveModel() {
+        if (wizard.activeInHierarchy == true)
+        {
+            return wizard;
+        }
+        else {
+            return knight;
+        }
+    }
+
 }

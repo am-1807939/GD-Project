@@ -17,6 +17,7 @@ public class EnemyHealth : MonoBehaviour
     public float deathDelay = 1f;
 	public GameObject explosionPrefab;
     public Slider healthBar;
+    public GameObject itemDrop;
 
 	void Start () 
 	{
@@ -55,7 +56,15 @@ public class EnemyHealth : MonoBehaviour
         GetComponent<EnemyController>().enabled = false; 
 
         // destroy after delay and when animation is over
+        Invoke("dropItems", animator.GetCurrentAnimatorStateInfo(0).length + deathDelay);
         Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length + deathDelay);
+    }
+
+    void dropItems()
+    {
+        if (itemDrop != null) {
+            Instantiate(itemDrop, transform.position, transform.rotation);
+        }
     }
 	
 }

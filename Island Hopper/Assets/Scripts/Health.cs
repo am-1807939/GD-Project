@@ -73,6 +73,16 @@ public class Health : MonoBehaviour {
 					break;
 				}
 				Destroy(gameObject);
+
+
+				// Death animation -- not working properly
+				// Animator anim = GetComponent<CharacterSwitch>().getActiveModel().GetComponent<Animator>();
+				// anim.SetTrigger("death");	
+				// Destroy(gameObject, anim.GetCurrentAnimatorStateInfo(0).length + 2f);
+				// foreach(Collider c in GetComponents<Collider> ()) {
+				// c.enabled = false; 
+				// }
+				// enabled = false;
 			}
 		}
 
@@ -82,7 +92,8 @@ public class Health : MonoBehaviour {
 	
 	public void ApplyDamage(float amount)
 	{	
-		healthPoints = healthPoints - amount;	
+		healthPoints = healthPoints - amount;
+		GetComponent<CharacterSwitch>().getActiveModel().GetComponent<Animator>().SetTrigger("isHit");	
 	}
 	
 	public void ApplyHeal(float amount)

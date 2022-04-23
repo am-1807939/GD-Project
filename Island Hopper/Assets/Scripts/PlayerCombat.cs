@@ -10,6 +10,7 @@ public class PlayerCombat : MonoBehaviour
     float turnVelocity;
 
     int isAttackingHash;
+    int attackNumHash;
 
     public Transform mainCam;
 
@@ -30,6 +31,7 @@ public class PlayerCombat : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         isAttackingHash = Animator.StringToHash("isAttacking");
+        attackNumHash = Animator.StringToHash("attackNum");
     }
 
     // Update is called once per frame
@@ -46,10 +48,6 @@ public class PlayerCombat : MonoBehaviour
                 nextAttack=Time.time + attackCooldown;
             }
         }
-
-
-        if (Input.GetKeyDown(KeyCode.K))
-            animator.SetTrigger("isHit");
     }
 
     void Attack()
@@ -59,6 +57,7 @@ public class PlayerCombat : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
+        animator.SetInteger(attackNumHash, (animator.GetInteger(attackNumHash) + 1) % 2);
         animator.SetTrigger(isAttackingHash);
         attackAudioSrc.Play();
         this.GetComponent<PlayerMovement>().CheckWalkAndRunSound();

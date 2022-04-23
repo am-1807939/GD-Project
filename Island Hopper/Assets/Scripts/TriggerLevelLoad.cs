@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class TriggerLevelLoad : MonoBehaviour {
 
@@ -19,7 +20,7 @@ public class TriggerLevelLoad : MonoBehaviour {
 	{
 		if(other.gameObject.tag == "Player" )
 		{
-			Application.LoadLevel(nameOfLevelToLoad);
+			SceneManager.LoadScene(nameOfLevelToLoad, LoadSceneMode.Single);
 		}
 	}
 }
