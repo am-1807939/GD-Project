@@ -67,7 +67,7 @@ public class EnemyHealth : MonoBehaviour
     void dropItems()
     {
         if (itemDrop != null) {
-            Instantiate(itemDrop, transform.position, transform.rotation);
+            Instantiate(itemDrop, transform.position + new Vector3 (0f, 2f, 0f), transform.rotation);
         }
 
         if(Random.Range(0f, 1f) <= HPDropChance )
