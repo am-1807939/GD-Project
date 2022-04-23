@@ -18,6 +18,10 @@ public class EnemyHealth : MonoBehaviour
 	public GameObject explosionPrefab;
     public Slider healthBar;
     public GameObject itemDrop;
+    public GameObject healthDrop;
+    public GameObject ManaDrop;
+    public float HPDropChance = 0.3f;
+    public float MPDropChance = 0.3f;
 
 	void Start () 
 	{
@@ -63,7 +67,17 @@ public class EnemyHealth : MonoBehaviour
     void dropItems()
     {
         if (itemDrop != null) {
-            Instantiate(itemDrop, transform.position, transform.rotation);
+            Instantiate(itemDrop, transform.position + new Vector3 (0f, 2f, 0f), transform.rotation);
+        }
+
+        if(Random.Range(0f, 1f) <= HPDropChance )
+        {
+            Instantiate(healthDrop, transform.position + new Vector3 (Random.Range(0f, 1f), 0f, Random.Range(0f, 1f)), transform.rotation);
+        }
+
+        if(Random.Range(0f, 1f) <= MPDropChance )
+        {
+            Instantiate(ManaDrop, transform.position + new Vector3 (Random.Range(0f, 1f), 0f, Random.Range(0f, 1f)), transform.rotation);
         }
     }
 	

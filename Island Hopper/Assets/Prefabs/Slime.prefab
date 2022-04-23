@@ -551,7 +551,6 @@ MonoBehaviour:
   attackRange: 1
   attackDamage: 5
   attackCooldown: 1
-  attackDelay: 0.5
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -571,6 +570,9 @@ MonoBehaviour:
   deathDelay: 1
   explosionPrefab: {fileID: 0}
   healthBar: {fileID: 8144816757542923242}
+  itemDrop: {fileID: 0}
+  healthDrop: {fileID: 8790799458617625747, guid: 3ce2a289e55194cb8bc0575147563226, type: 3}
+  ManaDrop: {fileID: 6785953808513086301, guid: 15e497c490b724ebbbda7a49002cbd21, type: 3}
 --- !u!65 &7595261454806850098
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -23,6 +23,8 @@ public class Health : MonoBehaviour {
 	private Vector3 respawnPosition;
 	private Quaternion respawnRotation;
 
+    private int nextUpdate=1;
+	public float healthRegenPoints = 1f;
 
 	private Image hpBar;
 	
@@ -85,6 +87,14 @@ public class Health : MonoBehaviour {
 				// enabled = false;
 			}
 		}
+
+		if(Time.time>=nextUpdate){
+             nextUpdate=Mathf.FloorToInt(Time.time)+1;
+
+            if (healthPoints < respawnHealthPoints) {
+                ApplyHeal(healthRegenPoints);
+            }
+         }
 
 		hpBar.fillAmount = healthPoints / respawnHealthPoints;
 
