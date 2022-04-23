@@ -73,6 +73,16 @@ public class Health : MonoBehaviour {
 					break;
 				}
 				Destroy(gameObject);
+
+
+				// Death animation -- not working properly
+				// Animator anim = GetComponent<CharacterSwitch>().getActiveModel().GetComponent<Animator>();
+				// anim.SetTrigger("death");	
+				// Destroy(gameObject, anim.GetCurrentAnimatorStateInfo(0).length + 2f);
+				// foreach(Collider c in GetComponents<Collider> ()) {
+				// c.enabled = false; 
+				// }
+				// enabled = false;
 			}
 		}
 

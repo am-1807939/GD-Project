@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 
 public class UIButtonLevelLoad : MonoBehaviour {
@@ -8,6 +9,6 @@ public class UIButtonLevelLoad : MonoBehaviour {
 	
 	public void loadLevel() {
 		//Load the level from LevelToLoad
-		Application.LoadLevel(LevelToLoad);
+		SceneManager.LoadScene(LevelToLoad, LoadSceneMode.Single);
 	}
 }

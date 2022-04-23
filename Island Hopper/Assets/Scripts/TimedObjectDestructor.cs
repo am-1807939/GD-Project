@@ -22,6 +22,6 @@ public class TimedObjectDestructor : MonoBehaviour {
 		if (detachChildren) { // detach the children before destroying if specified
 			transform.DetachChildren ();
 		}
-		DestroyObject (gameObject);
+		Destroy (gameObject);
 	}
 }
