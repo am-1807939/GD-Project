@@ -82,7 +82,8 @@ public class Health : MonoBehaviour {
 	
 	public void ApplyDamage(float amount)
 	{	
-		healthPoints = healthPoints - amount;	
+		healthPoints = healthPoints - amount;
+		GetComponent<CharacterSwitch>().getActiveModel().GetComponent<Animator>().SetTrigger("isHit");	
 	}
 	
 	public void ApplyHeal(float amount)

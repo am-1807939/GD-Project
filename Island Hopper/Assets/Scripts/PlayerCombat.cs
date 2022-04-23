@@ -48,10 +48,6 @@ public class PlayerCombat : MonoBehaviour
                 nextAttack=Time.time + attackCooldown;
             }
         }
-
-
-        if (Input.GetKeyDown(KeyCode.K))
-            animator.SetTrigger("isHit");
     }
 
     void Attack()
