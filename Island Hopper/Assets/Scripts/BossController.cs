@@ -72,7 +72,6 @@ public class BossController : MonoBehaviour
 	    void Attack()
     {
 		Vector3 direction = (target.transform.position - transform.position).normalized;
-        animator.SetTrigger(isAttackingHash);
 		GameObject createdCurseball = Instantiate(curseball, shotPoint.position, shotPoint.rotation);
 		createdCurseball.GetComponent<Rigidbody>().velocity = direction * attackSpeed;
     }
