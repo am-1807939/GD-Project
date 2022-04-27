@@ -73,6 +73,7 @@ public class PlayerCombat : MonoBehaviour
 
         foreach (Collider enemy in hitEnemies) {
             enemy.GetComponent<EnemyHealth>().ApplyDamage(attackDamage);
+            if (enemy.GetComponent<EnemyController>() != null)
             enemy.GetComponent<EnemyController>().receiveKnockback(knockbackStrength, enemy.transform.position - transform.position);
         }
 

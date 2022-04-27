@@ -57,7 +57,11 @@ public class EnemyHealth : MonoBehaviour
 
         animator.SetTrigger(isDeadHash);
 
-        GetComponent<EnemyController>().enabled = false; 
+        if (GetComponent<EnemyController>() != null)
+            GetComponent<EnemyController>().enabled = false; 
+
+        if (GetComponent<BossController>() != null)
+            GetComponent<BossController>().enabled = false; 
 
         // destroy after delay and when animation is over
         Invoke("dropItems", animator.GetCurrentAnimatorStateInfo(0).length + deathDelay);

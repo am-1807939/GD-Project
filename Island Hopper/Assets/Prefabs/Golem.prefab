@@ -558,7 +558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  lookRadius: 10
+  lookRadius: 30
   minDist: 4
   target: {fileID: 0}
   attackPoint: {fileID: 2970656262461049243}
