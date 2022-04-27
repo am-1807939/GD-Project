@@ -24,6 +24,18 @@ public class MagicDamage : MonoBehaviour {
 					Instantiate (explosionPrefab, transform.position, transform.rotation);
 				}
 			}
+
+			if (collision.gameObject.GetComponent<Health> () != null) {	// if the hit object has the Health script on it, deal damage
+				collision.gameObject.GetComponent<Health> ().ApplyDamage (damageAmount);
+		
+				if (destroySelfOnImpact) {
+					Destroy (gameObject, delayBeforeDestroy);	  // destroy the object whenever it hits something
+				}
+			
+				if (explosionPrefab != null) {
+					Instantiate (explosionPrefab, transform.position, transform.rotation);
+				}
+			}
 	}
 
 
