@@ -290,7 +290,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 0}
   healthBar: {fileID: 3216380424235694204}
   itemDrop: {fileID: 0}
-  healthDrop: {fileID: 8790799458617625747, guid: 3ce2a289e55194cb8bc0575147563226, type: 3}
+  healthDrop: {fileID: 8790799458617625747, guid: 4b3ce542356a040af9ff3000ca09b88f, type: 3}
   ManaDrop: {fileID: 6785953808513086301, guid: 9d420a19e668a4c1e8c2c1381568eb13, type: 3}
   HPDropChance: 0.5
   MPDropChance: 0.4
