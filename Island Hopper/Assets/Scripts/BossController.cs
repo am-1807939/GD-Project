@@ -23,6 +23,9 @@ public class BossController : MonoBehaviour
     private float nextAttack = 0f;
 
     public GameObject fleeEffect;
+    public GameObject summonedEnemy;
+    public int numberOfSummons = 3;
+    private Vector3 prevPosition;
 
 
 	// Use this for initialization
@@ -79,8 +82,16 @@ public class BossController : MonoBehaviour
     }
 
 	void Flee() {
+		prevPosition = transform.position;
+		Invoke("summonEnemy", 0.5f);
 		Instantiate(fleeEffect, transform.position + new Vector3 (0f, 2f, 0f), transform.rotation);
 		transform.position = new Vector3(Random.Range(-30f,30f), 0f, Random.Range(-30f,30f));
+	}
+
+	void summonEnemy() {
+		for (int i = 0; i < numberOfSummons; i++) {
+            Instantiate(summonedEnemy, prevPosition + new Vector3 (Random.Range(-1f,1f), 2f, Random.Range(-1f,1f)), transform.rotation);
+         }
 	}
 
     void OnDrawGizmosSelected ()
