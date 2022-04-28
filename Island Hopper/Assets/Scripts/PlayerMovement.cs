@@ -69,13 +69,7 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -2;
         }
 
-        if (jumpPressed && controller.isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(1 * -2.0f * gravity);
-            jumpAuidoSrc.Play();
-            CheckWalkAndRunSound();
 
-        }
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
@@ -107,6 +101,14 @@ public class PlayerMovement : MonoBehaviour
             runAudioSrc.Stop();
             animator.SetBool(isRunningHash, false);
             movementSpeed = 4.0f;
+        }
+
+        if (jumpPressed && controller.isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(1 * -2.0f * gravity);
+            jumpAuidoSrc.Play();
+            CheckWalkAndRunSound();
+
         }
 
         if (jumpPressed)
