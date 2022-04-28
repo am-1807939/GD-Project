@@ -74,14 +74,14 @@ public class EnemyHealth : MonoBehaviour
             Instantiate(itemDrop, transform.position + new Vector3 (0f, 2f, 0f), transform.rotation);
         }
 
-        if(Random.Range(0f, 1f) <= HPDropChance )
+        if(Random.Range(0f, 1f) <= HPDropChance && healthDrop != null)
         {
-            Instantiate(healthDrop, transform.position + new Vector3 (Random.Range(0f, 1f), 0f, Random.Range(0f, 1f)), transform.rotation);
+            Instantiate(healthDrop, transform.position + new Vector3 (Random.Range(0f, 1f), Random.Range(0.2f, 0.5f), Random.Range(0f, 1f)), transform.rotation);
         }
 
-        if(Random.Range(0f, 1f) <= MPDropChance )
+        if(Random.Range(0f, 1f) <= MPDropChance && ManaDrop != null)
         {
-            Instantiate(ManaDrop, transform.position + new Vector3 (Random.Range(0f, 1f), 0f, Random.Range(0f, 1f)), transform.rotation);
+            Instantiate(ManaDrop, transform.position + new Vector3 (Random.Range(0f, 1f), Random.Range(0.2f, 0.5f), Random.Range(0f, 1f)), transform.rotation);
         }
     }
 	

@@ -285,15 +285,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad432ee06c9a24a8dbe5062a90745319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
+  maxHP: 50
   deathDelay: 1
   explosionPrefab: {fileID: 0}
   healthBar: {fileID: 3216380424235694204}
   itemDrop: {fileID: 0}
   healthDrop: {fileID: 8790799458617625747, guid: 3ce2a289e55194cb8bc0575147563226, type: 3}
-  ManaDrop: {fileID: 6785953808513086301, guid: 15e497c490b724ebbbda7a49002cbd21, type: 3}
-  HPDropChance: 0.3
-  MPDropChance: 0.3
+  ManaDrop: {fileID: 6785953808513086301, guid: 9d420a19e668a4c1e8c2c1381568eb13, type: 3}
+  HPDropChance: 0.5
+  MPDropChance: 0.4
 --- !u!114 &7178521727518306983
 MonoBehaviour:
   m_ObjectHideFlags: 0

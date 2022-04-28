@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float gravity = -9.81f;
     private Vector3 velocity;
+    private float nextJump = 0f;
     public AudioSource walkAudioSrc;
     public AudioSource runAudioSrc;
     public AudioSource jumpAuidoSrc;
@@ -68,13 +69,7 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -2;
         }
 
-        if (jumpPressed && controller.isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(1 * -2.0f * gravity);
-            jumpAuidoSrc.Play();
-            CheckWalkAndRunSound();
-           
-        }
+
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
@@ -91,25 +86,39 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-            if (!isRunning && (forwardPressed && runPressed))
-            {
-                animator.SetBool(isRunningHash, true);
-                walkAudioSrc.Stop();
-                runAudioSrc.Play();
-                movementSpeed = 8.0f;
-            }
+        if (!isRunning && (forwardPressed && runPressed))
+        {
+            animator.SetBool(isRunningHash, true);
+            walkAudioSrc.Stop();
+            runAudioSrc.Play();
+            movementSpeed = 8.0f;
+        }
 
 
-            if (isRunning && (!forwardPressed || !runPressed))
-            {
-                walkAudioSrc.Play();
-                runAudioSrc.Stop();
+        if (isRunning && (!forwardPressed || !runPressed))
+        {
+            walkAudioSrc.Play();
+            runAudioSrc.Stop();
             animator.SetBool(isRunningHash, false);
-                movementSpeed = 4.0f;
-            }
+            movementSpeed = 4.0f;
+        }
 
-            if (jumpPressed)
+        if (jumpPressed && controller.isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(1 * -2.0f * gravity);
+            jumpAuidoSrc.Play();
+            CheckWalkAndRunSound();
+
+        }
+
+        if (jumpPressed)
+        {
+            if (Time.time >= nextJump)
+            {
                 animator.SetTrigger(isJumpingHash);
+                nextJump = Time.time + 1f;
+            }
+        }
 
         bool isPlaying(Animator anim, string stateName)
         {

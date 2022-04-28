@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 3f9959f2caf504d05ad029c798d9e55f, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -441,7 +441,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 400806666}
-  m_LocalRotation: {x: 0.10410984, y: -0.000000017646416, z: 0.000000001845735, w: 0.99456584}
+  m_LocalRotation: {x: 0.10410984, y: 0.000000017646423, z: -0.0000000018457358, w: 0.99456584}
   m_LocalPosition: {x: 0, y: 2.5, z: -50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -669,7 +669,7 @@ Terrain:
   m_DrawInstanced: 0
   m_DrawTreesAndFoliage: 1
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
+  m_MaterialTemplate: {fileID: 2100000, guid: 351b27a07d44e81489e46872299040e7, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
@@ -791,9 +791,9 @@ MonoBehaviour:
   mainCam: {fileID: 400806669}
   attackPoint: {fileID: 1874244860}
   attackRange: 1
-  attackDamage: 30
+  attackDamage: 20
   attackCooldown: 1
-  knockbackStrength: 600
+  knockbackStrength: 400
   attackAudioSrc: {fileID: 909590323}
   enemyLayers:
     serializedVersion: 2
@@ -1290,7 +1290,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1030901988}
-  m_LocalRotation: {x: 0.104109846, y: -0.000000017639547, z: 0.0000000018464847, w: 0.99456584}
+  m_LocalRotation: {x: 0.104109846, y: 0.000000017639554, z: -0.0000000018464854, w: 0.99456584}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1919,6 +1919,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1432315967}
   m_CullTransparentMesh: 1
+--- !u!1001 &1485683103
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1369398095694540802, guid: 3a513fc9079aa47ac9ed2fac756cba47, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369398095694540802, guid: 3a513fc9079aa47ac9ed2fac756cba47, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369398095694540802, guid: 3a513fc9079aa47ac9ed2fac756cba47, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369398095694540802, guid: 3a513fc9079aa47ac9ed2fac756cba47, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369398095694540802, guid: 3a513fc9079aa47ac9ed2fac756cba47, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369398095694540802, guid: 3a513fc9079aa47ac9ed2fac756cba47, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369398095694540802, guid: 3a513fc9079aa47ac9ed2fac756cba47, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369398095694540802, guid: 3a513fc9079aa47ac9ed2fac756cba47, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369398095694540802, guid: 3a513fc9079aa47ac9ed2fac756cba47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369398095694540802, guid: 3a513fc9079aa47ac9ed2fac756cba47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369398095694540802, guid: 3a513fc9079aa47ac9ed2fac756cba47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369398095694540805, guid: 3a513fc9079aa47ac9ed2fac756cba47, type: 3}
+      propertyPath: m_Name
+      value: DeathZone
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3a513fc9079aa47ac9ed2fac756cba47, type: 3}
 --- !u!1 &1502573643
 GameObject:
   m_ObjectHideFlags: 0
@@ -2031,9 +2088,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireball: {fileID: 1473099095112012803, guid: c02f3664db5de4a48994e802ab921e80, type: 3}
   shotPoint: {fileID: 29507332}
-  manaRequired: 10
+  SingleManaUsage: 10
+  AreaManaUsage: 50
+  attackCooldown: 1
   turnTime: 0.1
   mainCam: {fileID: 400806669}
+  secondCam: {fileID: 0}
+  laserAttack: {fileID: 0}
   attackAudioSrc: {fileID: 1505455869}
 --- !u!82 &1505455862
 AudioSource:
@@ -2593,7 +2654,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554122304}
-  m_LocalRotation: {x: 0.08604984, y: 0.0000000042856407, z: -3.701516e-10, w: 0.99629086}
+  m_LocalRotation: {x: 0.08604984, y: -0.0000000042856403, z: 3.7015158e-10, w: 0.99629086}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2692,7 +2753,10 @@ MonoBehaviour:
   target: {fileID: 0}
   curseball: {fileID: 1473099095112012803, guid: c6649739a15eb444b88e41031b5435ed, type: 3}
   attackDamage: 30
-  attackCooldown: 5
+  attackCooldown: 1
+  fleeEffect: {fileID: 100006, guid: 8b940ede2c20ec44ba870a2cdd277051, type: 3}
+  summonedEnemy: {fileID: 4769235920028141902, guid: 612e07f9c256a4e3e889772cabd34788, type: 3}
+  numberOfSummons: 3
 --- !u!114 &1607028036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2705,7 +2769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad432ee06c9a24a8dbe5062a90745319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
+  maxHP: 300
   deathDelay: 1
   explosionPrefab: {fileID: 0}
   healthBar: {fileID: 1255329066}
@@ -2773,7 +2837,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767467894}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6809a79fa2450048a8892204d564c15, type: 3}
   m_Name: 
@@ -7844,7 +7908,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1837165929}
-  m_LocalRotation: {x: 0.12218325, y: -0.000000017077465, z: 0.0000000021023316, w: 0.9925076}
+  m_LocalRotation: {x: 0.12218327, y: 0.000000017077465, z: -0.0000000021023319, w: 0.9925076}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
