@@ -540,7 +540,7 @@ MonoBehaviour:
   deathDelay: 1
   explosionPrefab: {fileID: 0}
   healthBar: {fileID: 2113811722891418124}
-  itemDrop: {fileID: 2470295177257547788, guid: 173cc7315a43c47ae931a34359969484, type: 3}
+  itemDrop: {fileID: 100012, guid: 3280986e1cc6149508dd36d214225695, type: 3}
   healthDrop: {fileID: 8790799458617625747, guid: 3ce2a289e55194cb8bc0575147563226, type: 3}
   ManaDrop: {fileID: 6785953808513086301, guid: 15e497c490b724ebbbda7a49002cbd21, type: 3}
   HPDropChance: 0.3

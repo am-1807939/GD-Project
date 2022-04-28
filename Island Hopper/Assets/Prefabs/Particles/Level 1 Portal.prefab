@@ -4818,7 +4818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7060f0325a3264511918062bec9c608d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameOfLevelToLoad: Level_3
+  nameOfLevelToLoad: Level_2
 --- !u!135 &641757469422081069
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ public class WizardCombat : MonoBehaviour
 
     private Mana playerMana;
 
-    private int mode = 1;
+    private int mode = 0;
     int isAttackingHash;
     int isWalkingHash;
     int isRunningHash;

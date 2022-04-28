@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 4301080940004187738}
   - component: {fileID: 4301080940004187737}
   m_Layer: 3
-  m_Name: GruntPolyart
+  m_Name: Orc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
