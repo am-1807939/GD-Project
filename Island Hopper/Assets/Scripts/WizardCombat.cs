@@ -29,6 +29,7 @@ public class WizardCombat : MonoBehaviour
 
     public GameObject laserAttack;
     public AudioSource attackAudioSrc;
+    public AudioSource laserAudioSrc;
 
     // Start is called before the first frame update
     void Start()
@@ -81,6 +82,7 @@ public class WizardCombat : MonoBehaviour
                 Vector3 point = mainCam.GetComponent<SelectArea>().hit.point;
 
 		        GameObject createdLaser = Instantiate(laserAttack, point, transform.rotation);
+                    laserAudioSrc.Play();
 
                 switchMode();
 

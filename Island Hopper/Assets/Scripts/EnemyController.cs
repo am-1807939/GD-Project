@@ -24,6 +24,7 @@ public class EnemyController : MonoBehaviour
     private float nextAttack = 0f;
 
     public LayerMask playerLayer;
+	private AudioSource attackSrc;
 
 
 
@@ -41,6 +42,7 @@ public class EnemyController : MonoBehaviour
 
         animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody>();
+		attackSrc = GetComponent<AudioSource>();
         isWalkingHash = Animator.StringToHash("isWalking");
         isAttackingHash = Animator.StringToHash("isAttacking");
 	}
@@ -96,9 +98,15 @@ public class EnemyController : MonoBehaviour
 
         foreach (Collider player in players) {
             player.GetComponent<Health>().ApplyDamage(attackDamage);
-        }
 
-    }
+			if (attackSrc != null)
+			{
+				attackSrc.Play();
+			}
+
+		}
+
+	}
 	public void SetTarget(Transform newTarget)
 	{
 		target = newTarget;
