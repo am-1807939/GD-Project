@@ -20,6 +20,8 @@ public class WizardCombat : MonoBehaviour
     int isWalkingHash;
     int isRunningHash;
 
+    private float nextAttack = 0f;
+    public float attackCooldown = 1f;
     public float turnTime = 0.1f;
     float turnVelocity;
     public Transform mainCam;
@@ -47,6 +49,9 @@ public class WizardCombat : MonoBehaviour
             switchMode();
         }
 
+        if(Time.time>=nextAttack){
+
+
         if (mode == 0)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0) && playerMana.ConsumeMana(SingleManaUsage))
@@ -64,6 +69,8 @@ public class WizardCombat : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
                 GameObject createdFireball = Instantiate(fireball, shotPoint.position, shotPoint.rotation);
                 createdFireball.GetComponent<Rigidbody>().velocity = shotPoint.up * attackSpeed;
+
+                nextAttack=Time.time + attackCooldown;
             }
         }
         else if (mode == 1)
@@ -76,7 +83,11 @@ public class WizardCombat : MonoBehaviour
 		        GameObject createdLaser = Instantiate(laserAttack, point, transform.rotation);
 
                 switchMode();
+
+                nextAttack=Time.time + attackCooldown;
             }
+
+        }
 
         }
 
