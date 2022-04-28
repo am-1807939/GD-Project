@@ -22,6 +22,8 @@ public class BossController : MonoBehaviour
 
     private float nextAttack = 0f;
 
+    public GameObject fleeEffect;
+
 
 	// Use this for initialization
 	void Start () 
@@ -75,6 +77,11 @@ public class BossController : MonoBehaviour
 		GameObject createdCurseball = Instantiate(curseball, shotPoint.position, shotPoint.rotation);
 		createdCurseball.GetComponent<Rigidbody>().velocity = direction * attackSpeed;
     }
+
+	void Flee() {
+		Instantiate(fleeEffect, transform.position + new Vector3 (0f, 2f, 0f), transform.rotation);
+		transform.position = new Vector3(Random.Range(-30f,30f), 0f, Random.Range(-30f,30f));
+	}
 
     void OnDrawGizmosSelected ()
 	{
