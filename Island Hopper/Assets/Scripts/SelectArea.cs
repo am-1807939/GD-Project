@@ -5,9 +5,6 @@ using UnityEngine;
 public class SelectArea : MonoBehaviour
 {
 
-	public GameObject curseball;
-
-
     public LayerMask terrainLayer;
     
     public RaycastHit hit;
