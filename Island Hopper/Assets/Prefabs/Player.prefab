@@ -5533,9 +5533,9 @@ MonoBehaviour:
   mainCam: {fileID: 0}
   attackPoint: {fileID: 1815306243081135322}
   attackRange: 1
-  attackDamage: 30
+  attackDamage: 15
   attackCooldown: 1
-  knockbackStrength: 600
+  knockbackStrength: 300
   attackAudioSrc: {fileID: 1815306244549242645}
   enemyLayers:
     serializedVersion: 2
@@ -6065,6 +6065,7 @@ MonoBehaviour:
   shotPoint: {fileID: 1815306244921159458}
   SingleManaUsage: 10
   AreaManaUsage: 50
+  attackCooldown: 1
   turnTime: 0.1
   mainCam: {fileID: 0}
   secondCam: {fileID: 0}

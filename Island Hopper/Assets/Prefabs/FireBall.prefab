@@ -9533,7 +9533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c16c8abc69a404c92f092c2bbe34d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 10
+  damageAmount: 15
   destroySelfOnImpact: 1
   delayBeforeDestroy: 0
   explosionPrefab: {fileID: 0}

@@ -1442,14 +1442,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad432ee06c9a24a8dbe5062a90745319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 50
+  maxHP: 25
   deathDelay: 1
   explosionPrefab: {fileID: 0}
   healthBar: {fileID: 8078806230885244175}
   itemDrop: {fileID: 0}
   healthDrop: {fileID: 8790799458617625747, guid: 3ce2a289e55194cb8bc0575147563226, type: 3}
   ManaDrop: {fileID: 0}
-  HPDropChance: 1
+  HPDropChance: 0.4
   MPDropChance: 0.3
 --- !u!114 &4548764235844711329
 MonoBehaviour:

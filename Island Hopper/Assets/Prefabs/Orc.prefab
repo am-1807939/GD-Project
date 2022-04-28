@@ -356,7 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad432ee06c9a24a8dbe5062a90745319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
+  maxHP: 150
   deathDelay: 1
   explosionPrefab: {fileID: 0}
   healthBar: {fileID: 8398467688543738321}
