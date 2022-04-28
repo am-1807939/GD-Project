@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class WizardCombat : MonoBehaviour
 {
@@ -13,11 +14,13 @@ public class WizardCombat : MonoBehaviour
 
     private Mana playerMana;
 
+    private int mode = 1;
     int isAttackingHash;
 
     public float turnTime = 0.1f;
     float turnVelocity;
     public Transform mainCam;
+    public CinemachineVirtualCamera secondCam;
     public AudioSource attackAudioSrc;
 
     // Start is called before the first frame update
@@ -31,7 +34,14 @@ public class WizardCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && playerMana.ConsumeMana(manaRequired))
+
+        if (Input.GetKeyDown(KeyCode.E)) {
+            mode = (mode + 1) % 2;
+            secondCam.Priority = mode * 10;
+        }
+
+        if (mode == 0) {
+            if (Input.GetKeyDown(KeyCode.Mouse0) && playerMana.ConsumeMana(manaRequired))
         {
             float horizontal = Input.GetAxis("Horizontal");
             float vertical = Input.GetAxis("Vertical");
@@ -46,6 +56,12 @@ public class WizardCombat : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
             GameObject createdFireball = Instantiate(fireball, shotPoint.position, shotPoint.rotation);
             createdFireball.GetComponent<Rigidbody>().velocity = shotPoint.up * attackSpeed;
+            }
+        } 
+        else if (mode == 1) {
+           
         }
+
+        
     }
 }
