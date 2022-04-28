@@ -9,18 +9,23 @@ public class WizardCombat : MonoBehaviour
 
     public GameObject fireball;
     public Transform shotPoint;
-    public float manaRequired = 10f;
+    public float SingleManaUsage = 10f;
+    public float AreaManaUsage = 50f;
     private float attackSpeed = 20.0f;
 
     private Mana playerMana;
 
     private int mode = 1;
     int isAttackingHash;
+    int isWalkingHash;
+    int isRunningHash;
 
     public float turnTime = 0.1f;
     float turnVelocity;
     public Transform mainCam;
     public CinemachineVirtualCamera secondCam;
+
+    public GameObject laserAttack;
     public AudioSource attackAudioSrc;
 
     // Start is called before the first frame update
@@ -29,6 +34,8 @@ public class WizardCombat : MonoBehaviour
         animator = GetComponent<Animator>();
         playerMana = GameObject.Find("Player").GetComponent<Mana>();
         isAttackingHash = Animator.StringToHash("isAttacking");
+        isRunningHash = Animator.StringToHash("isRunning");
+        isWalkingHash = Animator.StringToHash("isWalking");
     }
 
     // Update is called once per frame
@@ -42,7 +49,7 @@ public class WizardCombat : MonoBehaviour
 
         if (mode == 0)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0) && playerMana.ConsumeMana(manaRequired))
+            if (Input.GetKeyDown(KeyCode.Mouse0) && playerMana.ConsumeMana(SingleManaUsage))
             {
                 float horizontal = Input.GetAxis("Horizontal");
                 float vertical = Input.GetAxis("Vertical");
@@ -61,12 +68,14 @@ public class WizardCombat : MonoBehaviour
         }
         else if (mode == 1)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0) && playerMana.ConsumeMana(manaRequired))
+            if (Input.GetKeyDown(KeyCode.Mouse0) && playerMana.ConsumeMana(AreaManaUsage))
             {
 
                 Vector3 point = mainCam.GetComponent<SelectArea>().hit.point;
-                Debug.Log(point);
 
+		        GameObject createdLaser = Instantiate(laserAttack, point, transform.rotation);
+
+                switchMode();
             }
 
         }
@@ -87,6 +96,8 @@ public class WizardCombat : MonoBehaviour
             {
                 GetComponent<PlayerMovement>().enabled = false;
                 transform.parent.gameObject.GetComponent<CharacterSwitch>().enabled = false;
+                animator.SetBool(isWalkingHash, false);
+                animator.SetBool(isRunningHash, false);
             }
     }
 }
