@@ -9,7 +9,8 @@ public class SelectArea : MonoBehaviour
 
 
     public LayerMask terrainLayer;
-
+    
+    public RaycastHit hit;
 
     // Start is called before the first frame update
     void Start()
@@ -21,13 +22,8 @@ public class SelectArea : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown (0)) {
-            RaycastHit hit;
+            
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            // Summon a curseball 
-            Vector3 direction = ray.direction;
-		    GameObject createdCurseball = Instantiate(curseball, ray.origin, transform.rotation);
-		    createdCurseball.GetComponent<Rigidbody>().velocity = direction * 20f;
 
              if (Physics.Raycast(transform.position, ray.direction, out hit, Mathf.Infinity, terrainLayer )) {
                 // position to attack
