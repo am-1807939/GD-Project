@@ -14074,6 +14074,7 @@ GameObject:
   m_Component:
   - component: {fileID: 400006}
   - component: {fileID: 114000010627024476}
+  - component: {fileID: 358766578451588199}
   m_Layer: 0
   m_Name: Vanish Effect
   m_TagString: Untagged
@@ -14111,6 +14112,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db08735561a38424182823d8d175333b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &358766578451588199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82d7ea8bfea894ee78c90c91282c295e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeOut: 5
+  detachChildren: 0
 --- !u!1 &100008
 GameObject:
   m_ObjectHideFlags: 0
