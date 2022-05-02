@@ -676,7 +676,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 400806666}
-  m_LocalRotation: {x: 0.10410984, y: -0.000000017646416, z: 0.0000000018457466, w: 0.99456584}
+  m_LocalRotation: {x: 0.10410984, y: -0.000000017646416, z: 0.000000001845735, w: 0.99456584}
   m_LocalPosition: {x: 0, y: 2.5, z: -50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3095,6 +3095,7 @@ MonoBehaviour:
   magicAura: {fileID: 0}
   attackAudioSrc: {fileID: 1505455869}
   laserAudioSrc: {fileID: 0}
+  hoverEffect: {fileID: 0}
 --- !u!82 &1505455862
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3653,7 +3654,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554122304}
-  m_LocalRotation: {x: 0.08604984, y: -0.0000000042856403, z: 3.7015158e-10, w: 0.99629086}
+  m_LocalRotation: {x: 0.08604984, y: 0.0000000042856407, z: -3.701516e-10, w: 0.99629086}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5216,7 +5217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad432ee06c9a24a8dbe5062a90745319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 300
+  maxHP: 100
   deathDelay: 1
   explosionPrefab: {fileID: 0}
   healthBar: {fileID: 1255329066}
@@ -11763,7 +11764,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 0}
   onLivesGone: 1
   LevelToLoad: 
-  healthRegenPoints: 1
+  healthRegenPoints: 3
   gameOverCanvas: {fileID: 126266768}
 --- !u!114 &1767467901
 MonoBehaviour:
@@ -11779,7 +11780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manaPoints: 100
   maxManaPoints: 100
-  manaRegenPoints: 1
+  manaRegenPoints: 3
 --- !u!82 &1767467902
 AudioSource:
   m_ObjectHideFlags: 0
@@ -12046,7 +12047,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1837165929}
-  m_LocalRotation: {x: 0.12218327, y: 0.000000017077465, z: -0.0000000021023319, w: 0.9925076}
+  m_LocalRotation: {x: 0.12218325, y: -0.000000017077465, z: 0.0000000021023316, w: 0.9925076}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

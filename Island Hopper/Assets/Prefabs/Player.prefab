@@ -4894,7 +4894,8 @@ MonoBehaviour:
   explosionPrefab: {fileID: 0}
   onLivesGone: 1
   LevelToLoad: 
-  healthRegenPoints: 1
+  healthRegenPoints: 2
+  gameOverCanvas: {fileID: 0}
 --- !u!114 &1815306243184114523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4909,7 +4910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manaPoints: 100
   maxManaPoints: 100
-  manaRegenPoints: 1
+  manaRegenPoints: 2
 --- !u!82 &1815306243184114520
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5637,14 +5638,14 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 136306802490482818, guid: ccd8c3b89aa02e943a08ab9238a8a70c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ccd8c3b89aa02e943a08ab9238a8a70c, type: 3}
---- !u!1 &1816407104275520721 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1248815240492774, guid: ccd8c3b89aa02e943a08ab9238a8a70c, type: 3}
-  m_PrefabInstance: {fileID: 1815306244351207991}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1819059199264556745 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4463868907105534, guid: ccd8c3b89aa02e943a08ab9238a8a70c, type: 3}
+  m_PrefabInstance: {fileID: 1815306244351207991}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1816407104275520721 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1248815240492774, guid: ccd8c3b89aa02e943a08ab9238a8a70c, type: 3}
   m_PrefabInstance: {fileID: 1815306244351207991}
   m_PrefabAsset: {fileID: 0}
 --- !u!143 &1815306243987455711
@@ -6049,48 +6050,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1815306243987455699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1816407104275520721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83dd081f0097c8144b2bc2511ea46dc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireball: {fileID: 1473099095112012803, guid: c02f3664db5de4a48994e802ab921e80, type: 3}
-  shotPoint: {fileID: 1815306244921159458}
-  SingleManaUsage: 10
-  AreaManaUsage: 50
-  attackCooldown: 1
-  turnTime: 0.1
-  mainCam: {fileID: 0}
-  secondCam: {fileID: 0}
-  laserAttack: {fileID: 100008, guid: c655634a4339b4c39a9faa7869393022, type: 3}
-  attackAudioSrc: {fileID: 1815306243987455707}
-  laserAudioSrc: {fileID: 1973772201900205671}
---- !u!114 &1815306243987455708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1816407104275520721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4232d1a119563254c8d517a74eb35b1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 4
-  controller: {fileID: 1815306243184114527}
-  turnTime: 0.1
-  mainCam: {fileID: 0}
-  walkAudioSrc: {fileID: 1815306243987455696}
-  runAudioSrc: {fileID: 1815306243987455710}
-  jumpAuidoSrc: {fileID: 1815306243987455709}
 --- !u!82 &1973772201900205671
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6187,3 +6146,47 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1815306243987455699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816407104275520721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83dd081f0097c8144b2bc2511ea46dc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireball: {fileID: 1473099095112012803, guid: c02f3664db5de4a48994e802ab921e80, type: 3}
+  shotPoint: {fileID: 1815306244921159458}
+  SingleManaUsage: 10
+  AreaManaUsage: 50
+  attackCooldown: 1
+  turnTime: 0.1
+  mainCam: {fileID: 0}
+  secondCam: {fileID: 0}
+  laserAttack: {fileID: 100008, guid: c655634a4339b4c39a9faa7869393022, type: 3}
+  magicAura: {fileID: 0}
+  attackAudioSrc: {fileID: 1815306243987455707}
+  laserAudioSrc: {fileID: 1973772201900205671}
+  hoverEffect: {fileID: 0}
+--- !u!114 &1815306243987455708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816407104275520721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4232d1a119563254c8d517a74eb35b1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 4
+  controller: {fileID: 1815306243184114527}
+  turnTime: 0.1
+  mainCam: {fileID: 0}
+  walkAudioSrc: {fileID: 1815306243987455696}
+  runAudioSrc: {fileID: 1815306243987455710}
+  jumpAuidoSrc: {fileID: 1815306243987455709}

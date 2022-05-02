@@ -76,6 +76,7 @@ public class Health : MonoBehaviour {
 					// do nothing, death must be handled in another way elsewhere
 					break;
 				}
+				Cursor.visible = true;
 				gameOverCanvas.SetActive (true);
 				Destroy(gameObject);
 
