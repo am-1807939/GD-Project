@@ -106,6 +106,7 @@ public class WizardCombat : MonoBehaviour
                 GetComponent<PlayerMovement>().enabled = true;
                 transform.parent.gameObject.GetComponent<CharacterSwitch>().enabled = true;
                 magicAura.SetActive(false);
+                Cursor.visible = false;
             }
             else if (mode == 1)
             {
@@ -114,6 +115,7 @@ public class WizardCombat : MonoBehaviour
                 animator.SetBool(isWalkingHash, false);
                 animator.SetBool(isRunningHash, false);
                 magicAura.SetActive(true);
+                Cursor.visible = true;
             }
     }
 }
