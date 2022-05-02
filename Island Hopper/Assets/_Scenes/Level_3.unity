@@ -2463,6 +2463,7 @@ MonoBehaviour:
   mainCam: {fileID: 400806669}
   secondCam: {fileID: 0}
   laserAttack: {fileID: 0}
+  magicAura: {fileID: 0}
   attackAudioSrc: {fileID: 1505455869}
   laserAudioSrc: {fileID: 0}
 --- !u!82 &1505455862
@@ -3142,7 +3143,7 @@ MonoBehaviour:
   deathDelay: 1
   explosionPrefab: {fileID: 0}
   healthBar: {fileID: 1255329066}
-  itemDrop: {fileID: 0}
+  itemDrop: {fileID: 119738, guid: a007b780c94c646f6a46d16cf6b5a60b, type: 3}
   healthDrop: {fileID: 8790799458617625747, guid: 3ce2a289e55194cb8bc0575147563226, type: 3}
   ManaDrop: {fileID: 6785953808513086301, guid: 15e497c490b724ebbbda7a49002cbd21, type: 3}
   HPDropChance: 0.3
@@ -8371,7 +8372,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1837165929}
-  m_LocalRotation: {x: 0.12218327, y: 0.000000017077465, z: -0.0000000021023319, w: 0.9925076}
+  m_LocalRotation: {x: 0.12218325, y: -0.000000017077465, z: 0.0000000021023316, w: 0.9925076}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
