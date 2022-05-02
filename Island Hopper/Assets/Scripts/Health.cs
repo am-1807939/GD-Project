@@ -27,6 +27,7 @@ public class Health : MonoBehaviour {
 	public float healthRegenPoints = 1f;
 
 	private Image hpBar;
+	public GameObject gameOverCanvas;
 	
 
 	// Use this for initialization
@@ -43,6 +44,7 @@ public class Health : MonoBehaviour {
 			LevelToLoad = scene.name;
 
 		}
+		gameOverCanvas.SetActive (false);
 
 		hpBar = GameObject.Find("HPbar").GetComponent<Image>();
 	}
@@ -74,6 +76,7 @@ public class Health : MonoBehaviour {
 					// do nothing, death must be handled in another way elsewhere
 					break;
 				}
+				gameOverCanvas.SetActive (true);
 				Destroy(gameObject);
 
 
