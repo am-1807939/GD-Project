@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         isWalkingHash = Animator.StringToHash("isWalking");
         isRunningHash = Animator.StringToHash("isRunning");
         isJumpingHash = Animator.StringToHash("isJumping");
+        Cursor.visible = false;
     }
 
     // Update is called once per frame

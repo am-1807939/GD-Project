@@ -8,6 +8,7 @@ public class SelectArea : MonoBehaviour
     public LayerMask terrainLayer;
     
     public RaycastHit hit;
+    public bool mode3 = false;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,7 @@ public class SelectArea : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown (0)) {
+        if (mode3) {
             
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 

@@ -28,8 +28,10 @@ public class WizardCombat : MonoBehaviour
     public CinemachineVirtualCamera secondCam;
 
     public GameObject laserAttack;
+    public GameObject magicAura;
     public AudioSource attackAudioSrc;
     public AudioSource laserAudioSrc;
+    public GameObject hoverEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +41,7 @@ public class WizardCombat : MonoBehaviour
         isAttackingHash = Animator.StringToHash("isAttacking");
         isRunningHash = Animator.StringToHash("isRunning");
         isWalkingHash = Animator.StringToHash("isWalking");
+        hoverEffect.SetActive(false);
     }
 
     // Update is called once per frame
@@ -76,11 +79,13 @@ public class WizardCombat : MonoBehaviour
         }
         else if (mode == 1)
         {
+
+            Vector3 point = mainCam.GetComponent<SelectArea>().hit.point;
+
+            hoverEffect.transform.position = point;
+
             if (Input.GetKeyDown(KeyCode.Mouse0) && playerMana.ConsumeMana(AreaManaUsage))
             {
-
-                Vector3 point = mainCam.GetComponent<SelectArea>().hit.point;
-
 		        GameObject createdLaser = Instantiate(laserAttack, point, transform.rotation);
                     laserAudioSrc.Play();
 
@@ -104,6 +109,10 @@ public class WizardCombat : MonoBehaviour
             {
                 GetComponent<PlayerMovement>().enabled = true;
                 transform.parent.gameObject.GetComponent<CharacterSwitch>().enabled = true;
+                magicAura.SetActive(false);
+                Cursor.visible = false;
+                mainCam.GetComponent<SelectArea>().mode3 = false;
+                hoverEffect.SetActive(false);
             }
             else if (mode == 1)
             {
@@ -111,6 +120,10 @@ public class WizardCombat : MonoBehaviour
                 transform.parent.gameObject.GetComponent<CharacterSwitch>().enabled = false;
                 animator.SetBool(isWalkingHash, false);
                 animator.SetBool(isRunningHash, false);
+                magicAura.SetActive(true);
+                Cursor.visible = true;
+                mainCam.GetComponent<SelectArea>().mode3 = true;
+                hoverEffect.SetActive(true);
             }
     }
 }

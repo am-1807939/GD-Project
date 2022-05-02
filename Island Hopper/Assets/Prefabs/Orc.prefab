@@ -384,7 +384,7 @@ MonoBehaviour:
   target: {fileID: 0}
   attackPoint: {fileID: 4301080940924397968}
   attackRange: 1
-  attackDamage: 10
+  attackDamage: 20
   attackCooldown: 1
   playerLayer:
     serializedVersion: 2
