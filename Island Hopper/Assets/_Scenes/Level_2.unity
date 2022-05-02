@@ -1638,11 +1638,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 337198888327215162, guid: d015cbaf4217bee4ba738dcbb3ec59db, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000016895918
+      value: -0.000000016895914
       objectReference: {fileID: 0}
     - target: {fileID: 337198888327215162, guid: d015cbaf4217bee4ba738dcbb3ec59db, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000003253857
+      value: 0.000000003253856
       objectReference: {fileID: 0}
     - target: {fileID: 337198888891921418, guid: d015cbaf4217bee4ba738dcbb3ec59db, type: 3}
       propertyPath: m_Follow
@@ -8284,6 +8284,7 @@ MonoBehaviour:
   terrainLayer:
     serializedVersion: 2
     m_Bits: 128
+  mode3: 0
 --- !u!4 &1252413004 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1576488453971394810, guid: a778b631c6253a04899cb31bad047c81, type: 3}
@@ -12149,6 +12150,72 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8903058273634951509, guid: f1fc5bb90ac285e4486771552d63bcb8, type: 3}
   m_PrefabInstance: {fileID: 1457709125}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1826337828
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1197589735074243206, guid: 0dd4b19d434e6475a9409a3239ee8b95, type: 3}
+      propertyPath: m_Name
+      value: HoverEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197589735074243206, guid: 0dd4b19d434e6475a9409a3239ee8b95, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197589735074610854, guid: 0dd4b19d434e6475a9409a3239ee8b95, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197589735074610854, guid: 0dd4b19d434e6475a9409a3239ee8b95, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197589735074610854, guid: 0dd4b19d434e6475a9409a3239ee8b95, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197589735074610854, guid: 0dd4b19d434e6475a9409a3239ee8b95, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197589735074610854, guid: 0dd4b19d434e6475a9409a3239ee8b95, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197589735074610854, guid: 0dd4b19d434e6475a9409a3239ee8b95, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197589735074610854, guid: 0dd4b19d434e6475a9409a3239ee8b95, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197589735074610854, guid: 0dd4b19d434e6475a9409a3239ee8b95, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197589735074610854, guid: 0dd4b19d434e6475a9409a3239ee8b95, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197589735074610854, guid: 0dd4b19d434e6475a9409a3239ee8b95, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197589735074610854, guid: 0dd4b19d434e6475a9409a3239ee8b95, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0dd4b19d434e6475a9409a3239ee8b95, type: 3}
+--- !u!1 &1826337829 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1197589735074243206, guid: 0dd4b19d434e6475a9409a3239ee8b95, type: 3}
+  m_PrefabInstance: {fileID: 1826337828}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1827285886 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1279437348525638701, guid: e2e682b966e3f644392ffbfab511e0e2, type: 3}
@@ -13285,6 +13352,10 @@ PrefabInstance:
       propertyPath: secondCam
       value: 
       objectReference: {fileID: 223587798}
+    - target: {fileID: 1815306243987455699, guid: 447309e55c1a8d845b075e2244c89a71, type: 3}
+      propertyPath: hoverEffect
+      value: 
+      objectReference: {fileID: 1826337829}
     - target: {fileID: 1815306243987455708, guid: 447309e55c1a8d845b075e2244c89a71, type: 3}
       propertyPath: mainCam
       value: 
