@@ -43,6 +43,7 @@ public class EnemyController : MonoBehaviour
         animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody>();
 		attackSrc = GetComponent<AudioSource>();
+		attackSrc.Stop();
         isWalkingHash = Animator.StringToHash("isWalking");
         isAttackingHash = Animator.StringToHash("isAttacking");
 	}
