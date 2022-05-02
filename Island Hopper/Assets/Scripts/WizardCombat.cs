@@ -28,6 +28,7 @@ public class WizardCombat : MonoBehaviour
     public CinemachineVirtualCamera secondCam;
 
     public GameObject laserAttack;
+    public GameObject magicAura;
     public AudioSource attackAudioSrc;
     public AudioSource laserAudioSrc;
 
@@ -104,6 +105,7 @@ public class WizardCombat : MonoBehaviour
             {
                 GetComponent<PlayerMovement>().enabled = true;
                 transform.parent.gameObject.GetComponent<CharacterSwitch>().enabled = true;
+                magicAura.SetActive(false);
             }
             else if (mode == 1)
             {
@@ -111,6 +113,7 @@ public class WizardCombat : MonoBehaviour
                 transform.parent.gameObject.GetComponent<CharacterSwitch>().enabled = false;
                 animator.SetBool(isWalkingHash, false);
                 animator.SetBool(isRunningHash, false);
+                magicAura.SetActive(true);
             }
     }
 }
