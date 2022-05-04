@@ -11,6 +11,10 @@ public class ShellMenuController : MonoBehaviour
     private string levelToLoad;
     [SerializeField] private GameObject noSavedGameDialog = null;
 
+    void Start() {
+        Cursor.visible = true;
+    }
+
     public void NewGameDialogYes()
     {
         SceneManager.LoadScene(_newGameLevel);
