@@ -29,7 +29,7 @@ public class ShellMenuController : MonoBehaviour
         }
     }
 
-    public void ExitButton()
+    public void ExitGameDialogYes()
     {
         Application.Quit();
     }
