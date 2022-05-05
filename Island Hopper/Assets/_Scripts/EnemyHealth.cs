@@ -22,6 +22,7 @@ public class EnemyHealth : MonoBehaviour
     public GameObject ManaDrop;
     public float HPDropChance = 0.3f;
     public float MPDropChance = 0.3f;
+    	public GameObject victoryCanvas;
 
 	void Start () 
 	{
@@ -29,6 +30,9 @@ public class EnemyHealth : MonoBehaviour
         animator = GetComponent<Animator>();
         isHitHash = Animator.StringToHash("isHit");
         isDeadHash = Animator.StringToHash("isDead");
+        if (victoryCanvas !=null) {
+            victoryCanvas.SetActive (false);
+        }
 	}
 
     private void Update()
@@ -61,7 +65,7 @@ public class EnemyHealth : MonoBehaviour
             GetComponent<EnemyController>().enabled = false; 
 
         if (GetComponent<BossController>() != null)
-            GetComponent<BossController>().enabled = false; 
+            GetComponent<BossController>().enabled = false;
 
         // destroy after delay and when animation is over
         Invoke("dropItems", animator.GetCurrentAnimatorStateInfo(0).length + deathDelay);
@@ -70,6 +74,10 @@ public class EnemyHealth : MonoBehaviour
 
     void dropItems()
     {
+        if (victoryCanvas !=null) {
+            victoryCanvas.SetActive (true);
+        }
+
         if (itemDrop != null) {
             Instantiate(itemDrop, transform.position + new Vector3 (0f, 2f, 0f), transform.rotation);
         }
