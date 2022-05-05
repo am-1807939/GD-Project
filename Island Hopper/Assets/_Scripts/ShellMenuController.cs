@@ -20,6 +20,8 @@ public class ShellMenuController : MonoBehaviour
 
     void Start() {
         Cursor.visible = true;
+        volumeSlider.value = PlayerPrefs.GetFloat("masterVolume");
+        volumeTextValue.text = PlayerPrefs.GetFloat("masterVolume").ToString("0.0");
     }
 
     public void NewGameDialogYes()
