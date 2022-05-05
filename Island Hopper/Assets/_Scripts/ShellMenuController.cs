@@ -10,7 +10,6 @@ public class ShellMenuController : MonoBehaviour
     [Header("Volume Setting")]
     [SerializeField] private TMP_Text volumeTextValue = null;
     [SerializeField] private Slider volumeSlider = null;
-
     [SerializeField] private GameObject confirmationPrompt = null;
 
     [Header("Levels To Load")]
@@ -22,6 +21,7 @@ public class ShellMenuController : MonoBehaviour
         Cursor.visible = true;
         volumeSlider.value = PlayerPrefs.GetFloat("masterVolume");
         volumeTextValue.text = PlayerPrefs.GetFloat("masterVolume").ToString("0.0");
+        getScreenMode();
     }
 
     public void NewGameDialogYes()
@@ -64,5 +64,27 @@ public class ShellMenuController : MonoBehaviour
         confirmationPrompt.SetActive(true);
         yield return new WaitForSeconds(2);
         confirmationPrompt.SetActive(false);
+    }
+
+    public void setFullScreenMode()
+    {
+        PlayerPrefs.SetInt("masterFullScreen", 1);
+        Screen.fullScreen = true;
+    }
+    
+    public void setWindowScreenMode()
+    {
+        PlayerPrefs.SetInt("masterFullScreen", 0);
+        Screen.fullScreen = false;
+    }
+
+    private void getScreenMode()
+    {
+        int mode = PlayerPrefs.GetInt("masterFullScreen");
+
+        if (mode == 1)
+            Screen.fullScreen = true;
+        else
+            Screen.fullScreen = false;
     }
 }
